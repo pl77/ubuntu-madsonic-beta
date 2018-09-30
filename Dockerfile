@@ -1,7 +1,6 @@
 FROM ubuntu:18.04
 
 # Madsonic Package Information
-ENV LANG en_US.utf8
 
 # Install Apt Packages
 RUN apt-get update && apt-get install -y \
@@ -14,7 +13,10 @@ RUN apt-get update && apt-get install -y \
   fonts-noto-mono \
   fonts-noto-hinted \
   && rm -rf /var/lib/apt/lists/* \
-  && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+  && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
+  && localedef -i ja_JP -c -f UTF-8 -A /usr/share/locale/locale.alias ja_JP.UTF-8
+
+ENV LANG en_US.utf8
 
 # Madsonic Package Information
 ENV PKG_NAME madsonic
