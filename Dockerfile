@@ -6,7 +6,7 @@ FROM ubuntu:18.04
 RUN apt-get update && apt-get install -y \
   ca-certificates \
   locales \
-  default-jre-headless \
+  openjdk-8-jre \
   unzip \
   wget \
   ffmpeg \
