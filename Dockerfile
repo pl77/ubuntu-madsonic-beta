@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
   default-jre-headless \
   unzip \
   wget \
+  ffmpeg \
   fonts-noto-cjk \
   fonts-noto-mono \
   fonts-noto-hinted \
@@ -36,7 +37,7 @@ RUN dpkg -i ${DEB_NAME}
 # Create hardlinks to the transcoding binaries.
 # This way we can mount a volume over /var/madsonic.
 # <host-dir>/var/madsonic/transcode/ffmpeg -> /usr/local/bin/ffmpeg
-RUN ln /var/madsonic/transcode/ffmpeg /usr/local/bin
+#RUN ln /var/madsonic/transcode/ffmpeg /usr/local/bin
 
 # Expose ports
 EXPOSE 4040
