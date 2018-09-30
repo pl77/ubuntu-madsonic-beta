@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir /var/madsonic/transcode
-ln -s /usr/bin/ffmpeg /var/madsonic/transcode/ffmpeg
+mkdir /config/transcode
+ln -s /usr/bin/ffmpeg /config/transcode/ffmpeg
 
 /usr/bin/madsonic --home=/config --default-music-folder=/media
 
