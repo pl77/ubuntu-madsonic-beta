@@ -38,9 +38,11 @@ RUN dpkg -i ${DEB_NAME}
 # <host-dir>/var/madsonic/transcode/ffmpeg -> /usr/local/bin/ffmpeg
 RUN ln /var/madsonic/transcode/ffmpeg /usr/local/bin
 
+# Expose ports
 EXPOSE 4040
 EXPOSE 4050
 
+# Startup
 ADD ./start.sh /start.sh
 RUN chmod +x  /start.sh
 
