@@ -18,6 +18,11 @@ RUN apt-get update && apt-get install -y \
 
 ENV LANG en_US.utf8
 
+# Volumes
+VOLUME /var/madsonic
+VOLUME /config
+VOLUME /media
+
 # Madsonic Package Information
 ENV PKG_NAME madsonic
 ENV PKG_VER 6.3
@@ -32,10 +37,6 @@ RUN dpkg -i ${DEB_NAME}
 # This way we can mount a volume over /var/madsonic.
 # <host-dir>/var/madsonic/transcode/ffmpeg -> /usr/local/bin/ffmpeg
 RUN ln /var/madsonic/transcode/ffmpeg /usr/local/bin
-
-VOLUME /var/madsonic
-VOLUME /config
-VOLUME /media
 
 EXPOSE 4040
 EXPOSE 4050
