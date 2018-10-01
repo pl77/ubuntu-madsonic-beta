@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 # Madsonic Package Information
 
-# Install Apt Packages
+# Install Apt Packages, link fonts, set locale
 RUN apt-get update && apt-get install -y \
   ca-certificates \
   locales \
@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
   fonts-noto-mono \
   fonts-noto-hinted \
   && rm -rf /var/lib/apt/lists/* \
+  && mkdir -p /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/fonts/fallback \
+  && ln -s /usr/share/fonts/opentype/noto/*CJK*.ttc /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/fonts/fallback/ \
   && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
   && localedef -i ja_JP -c -f UTF-8 -A /usr/share/locale/locale.alias ja_JP.UTF-8
 
